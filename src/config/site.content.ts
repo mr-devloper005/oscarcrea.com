@@ -10,16 +10,16 @@ export const siteContent = {
   hero: {
     badge: 'Latest stories and visuals',
     title: ['A thoughtful home for', 'stories, visuals, and discovery.'],
-    description: 'A Image + Social Profile site for Oscarcrea, built for clean discovery and structured publishing.',
+    description: 'A image social profile experience for Oscarcrea—share your gallery, grow your presence, and browse in a visual-first feed.',
     primaryCta: {
-      label: 'Explore visuals',
-      href: '/images',
+      label: 'Explore gallery',
+      href: '/gallery',
     },
     secondaryCta: {
-      label: 'View profiles',
-      href: '/profile',
+      label: 'Learn more',
+      href: '/about',
     },
-    searchPlaceholder: 'Search stories, visuals, listings, and more',
+    searchPlaceholder: 'Search visuals, styles, and creators',
     focusLabel: 'Focus',
     featureCardBadge: 'latest cover rotation',
     featureCardTitle: 'Latest posts shape the visual identity of the homepage.',
@@ -55,20 +55,20 @@ export const siteContent = {
     },
     secondaryLink: {
       label: 'See visuals',
-      href: '/images',
+      href: '/gallery',
     },
   },
   cta: {
     badge: 'Start exploring',
-    title: 'Explore articles, visuals, and resources through one connected experience.',
-    description: 'A Image + Social Profile site for Oscarcrea, built for clean discovery and structured publishing.',
+    title: 'Explore the gallery and shape your public image profile in one place.',
+    description: 'Share photos, build your visual identity, and discover work from other creators—without directory or classified noise.',
     primaryCta: {
-      label: 'Explore visuals',
-      href: '/images',
+      label: 'Open gallery',
+      href: '/gallery',
     },
     secondaryCta: {
-      label: 'View profiles',
-      href: '/profile',
+      label: 'About',
+      href: '/about',
     },
   },
   taskSectionHeading: 'Latest {label}',
@@ -132,7 +132,7 @@ export const taskIntroCopy: Record<
     ],
     links: [
       { label: 'Explore listings', href: '/listings' },
-      { label: 'Open images', href: '/images' },
+      { label: 'Open gallery', href: '/gallery' },
       { label: 'Browse resources', href: '/pdf' },
     ],
   },
@@ -153,13 +153,13 @@ export const taskIntroCopy: Record<
     title: 'Image-led posts and visual stories',
     paragraphs: [
       'Images take the lead in this section through galleries, visual posts, and story-led content where imagery carries the experience.',
-      'These posts connect with articles, listings, and other sections so visuals can act as entry points into deeper content.',
-      'Browse the latest visual updates, then continue into related stories or supporting pages for more context.',
+      'This lane is tuned for an image social profile: your work stays in focus without unrelated directory or classified surfaces.',
+      'Browse the latest visual updates, then continue into about or contact when you want more context about the platform.',
     ],
     links: [
-      { label: 'Read articles', href: '/articles' },
-      { label: 'Explore listings', href: '/listings' },
-      { label: 'Open classifieds', href: '/classifieds' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Home', href: '/' },
     ],
   },
   profile: {
@@ -172,7 +172,7 @@ export const taskIntroCopy: Record<
     links: [
       { label: 'Open listings', href: '/listings' },
       { label: 'Read articles', href: '/articles' },
-      { label: 'Browse images', href: '/images' },
+      { label: 'Browse gallery', href: '/gallery' },
     ],
   },
   sbm: {

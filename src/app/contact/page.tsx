@@ -6,43 +6,6 @@ import { getFactoryState } from '@/design/factory/get-factory-state'
 import { getProductKind } from '@/design/factory/get-product-kind'
 import { CONTACT_PAGE_OVERRIDE_ENABLED, ContactPageOverride } from '@/overrides/contact-page'
 
-function getTone(kind: ReturnType<typeof getProductKind>) {
-  if (kind === 'directory') {
-    return {
-      shell: 'bg-[#f8fbff] text-slate-950',
-      panel: 'border border-slate-200 bg-white',
-      soft: 'border border-slate-200 bg-slate-50',
-      muted: 'text-slate-600',
-      action: 'bg-slate-950 text-white hover:bg-slate-800',
-    }
-  }
-  if (kind === 'editorial') {
-    return {
-      shell: 'bg-[#fbf6ee] text-[#241711]',
-      panel: 'border border-[#dcc8b7] bg-[#fffdfa]',
-      soft: 'border border-[#e6d6c8] bg-[#fff4e8]',
-      muted: 'text-[#6e5547]',
-      action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
-    }
-  }
-  if (kind === 'visual') {
-    return {
-      shell: 'bg-[#07101f] text-white',
-      panel: 'border border-white/10 bg-white/6',
-      soft: 'border border-white/10 bg-white/5',
-      muted: 'text-slate-300',
-      action: 'bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
-    }
-  }
-  return {
-    shell: 'bg-[#f7f1ea] text-[#261811]',
-    panel: 'border border-[#ddcdbd] bg-[#fffaf4]',
-    soft: 'border border-[#e8dbce] bg-[#f3e8db]',
-    muted: 'text-[#71574a]',
-    action: 'bg-[#5b2b3b] text-[#fff0f5] hover:bg-[#74364b]',
-  }
-}
-
 export default function ContactPage() {
   if (CONTACT_PAGE_OVERRIDE_ENABLED) {
     return <ContactPageOverride />
@@ -50,7 +13,6 @@ export default function ContactPage() {
 
   const { recipe } = getFactoryState()
   const productKind = getProductKind(recipe)
-  const tone = getTone(productKind)
   const lanes =
     productKind === 'directory'
       ? [
@@ -66,47 +28,93 @@ export default function ContactPage() {
           ]
         : productKind === 'visual'
           ? [
-              { icon: ImageIcon, title: 'Creator collaborations', body: 'Discuss gallery launches, creator features, and visual campaigns.' },
-              { icon: Sparkles, title: 'Licensing and use', body: 'Reach out about usage rights, commercial requests, and visual partnerships.' },
-              { icon: Mail, title: 'Media kits', body: 'Request creator decks, editorial support, or visual feature placement.' },
+              { icon: ImageIcon, title: 'Creator & gallery', body: 'Partnerships, featured placements, and collaborations for visual campaigns on the feed.' },
+              { icon: Sparkles, title: 'Licensing & press', body: 'Usage rights, media requests, and brand-safe use of imagery from the platform.' },
+              { icon: Mail, title: 'Product feedback', body: 'Report bugs, suggest features, or share how you use your image profile day to day.' },
             ]
           : [
-              { icon: Bookmark, title: 'Collection submissions', body: 'Suggest resources, boards, and links that deserve a place in the library.' },
-              { icon: Mail, title: 'Resource partnerships', body: 'Coordinate curation projects, reference pages, and link programs.' },
-              { icon: Sparkles, title: 'Curator support', body: 'Need help organizing shelves, collections, or profile-connected boards?' },
+              { icon: Bookmark, title: 'Collections & curation', body: 'Suggest resources, boards, and links that deserve a place in the library.' },
+              { icon: Mail, title: 'Partnerships', body: 'Coordinate curation projects, reference pages, and link programs.' },
+              { icon: Sparkles, title: 'Curator support', body: 'Help organizing shelves, collections, or profile-connected boards.' },
             ]
 
   return (
-    <div className={`min-h-screen ${tone.shell}`}>
+    <div className="min-h-screen bg-[#0b0e0f] text-slate-100">
       <NavbarShell />
-      <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Contact {SITE_CONFIG.name}</p>
-            <h1 className="mt-4 text-5xl font-semibold tracking-[-0.05em]">A support page that matches the product, not a generic contact form.</h1>
-            <p className={`mt-5 max-w-2xl text-sm leading-8 ${tone.muted}`}>Tell us what you are trying to publish, fix, or launch. We will route it through the right lane instead of forcing every request into the same support bucket.</p>
-            <div className="mt-8 space-y-4">
-              {lanes.map((lane) => (
-                <div key={lane.title} className={`rounded-[1.6rem] p-5 ${tone.soft}`}>
-                  <lane.icon className="h-5 w-5" />
-                  <h2 className="mt-3 text-xl font-semibold">{lane.title}</h2>
-                  <p className={`mt-2 text-sm leading-7 ${tone.muted}`}>{lane.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={`rounded-[2rem] p-7 ${tone.panel}`}>
-            <h2 className="text-2xl font-semibold">Send a message</h2>
-            <form className="mt-6 grid gap-4">
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Your name" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Email address" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="What do you need help with?" />
-              <textarea className="min-h-[180px] rounded-2xl border border-current/10 bg-transparent px-4 py-3 text-sm" placeholder="Share the full context so we can respond with the right next step." />
-              <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold ${tone.action}`}>Send message</button>
-            </form>
+      <main>
+        <section className="relative overflow-hidden border-b border-white/10">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-25%,rgba(62,224,194,0.14),transparent_55%)]"
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#3ee0c2]">Get in touch</p>
+            <h1 className="mt-6 max-w-3xl text-3xl font-bold uppercase leading-tight tracking-[0.06em] text-white sm:text-4xl md:text-5xl">
+              Let&apos;s talk visuals
+            </h1>
+            <p className="font-body-ui mt-5 max-w-2xl text-base leading-relaxed text-slate-400">
+              Tell us what you&apos;re building—gallery launches, partnerships, or support. We route requests to the right lane
+              so you get a useful reply, not a generic ticket bucket.
+            </p>
           </div>
         </section>
+
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div>
+              <h2 className="text-lg font-semibold uppercase tracking-wide text-white">How we can help</h2>
+              <p className="font-body-ui mt-2 text-sm text-slate-500">Pick the lane that fits—{SITE_CONFIG.name}</p>
+              <div className="mt-8 space-y-4">
+                {lanes.map((lane) => (
+                  <div
+                    key={lane.title}
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-[0_0_24px_rgba(62,224,194,0.06)] backdrop-blur-sm"
+                  >
+                    <lane.icon className="h-5 w-5 text-[#3ee0c2]" aria-hidden />
+                    <h3 className="mt-3 text-lg font-semibold text-white">{lane.title}</h3>
+                    <p className="font-body-ui mt-2 text-sm leading-relaxed text-slate-400">{lane.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/12 bg-white/[0.06] p-8 shadow-[0_0_40px_rgba(0,0,0,0.35)] backdrop-blur-md">
+              <h2 className="text-xl font-semibold text-white">Send a message</h2>
+              <p className="font-body-ui mt-2 text-sm text-slate-400">We typically reply within two business days.</p>
+              <form className="mt-6 grid gap-4">
+                <input
+                  className="h-12 rounded-xl border border-white/15 bg-black/40 px-4 text-sm text-white placeholder:text-slate-500 outline-none ring-offset-[#0b0e0f] focus-visible:ring-2 focus-visible:ring-[#3ee0c2]/50"
+                  placeholder="Your name"
+                  name="name"
+                  autoComplete="name"
+                />
+                <input
+                  className="h-12 rounded-xl border border-white/15 bg-black/40 px-4 text-sm text-white placeholder:text-slate-500 outline-none ring-offset-[#0b0e0f] focus-visible:ring-2 focus-visible:ring-[#3ee0c2]/50"
+                  placeholder="Email address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                />
+                <input
+                  className="h-12 rounded-xl border border-white/15 bg-black/40 px-4 text-sm text-white placeholder:text-slate-500 outline-none ring-offset-[#0b0e0f] focus-visible:ring-2 focus-visible:ring-[#3ee0c2]/50"
+                  placeholder="Subject (e.g. partnership, press, support)"
+                  name="subject"
+                />
+                <textarea
+                  className="min-h-[180px] rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none ring-offset-[#0b0e0f] focus-visible:ring-2 focus-visible:ring-[#3ee0c2]/50"
+                  placeholder="Share context so we can respond with the right next step."
+                  name="message"
+                />
+                <button
+                  type="submit"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-[#3ee0c2] px-6 text-sm font-semibold text-[#050807] shadow-[0_0_22px_rgba(62,224,194,0.35)] transition hover:bg-[#2fd4b4]"
+                >
+                  Send message
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </div>

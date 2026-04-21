@@ -72,27 +72,29 @@ export default async function SearchPage({
 
   return (
     <PageShell
+      variant="visual"
+      eyebrow="Discover"
       title="Search"
       description={
         query
-          ? `Results for "${query}"`
-          : "Browse the latest posts across every task."
+          ? `Results for “${query}” across galleries and posts.`
+          : "Browse the latest visual posts and profiles—filter with the field below."
       }
       actions={
-        <form action="/search" className="flex w-full gap-2 sm:w-auto">
+        <form action="/search" className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
           <input type="hidden" name="master" value="1" />
           {category ? <input type="hidden" name="category" value={category} /> : null}
           {task ? <input type="hidden" name="task" value={task} /> : null}
           <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
               name="q"
               defaultValue={query}
-              placeholder="Search across tasks..."
-              className="h-11 pl-9"
+              placeholder="Titles, tags, summaries…"
+              className="h-11 border-white/15 bg-black/40 pl-9 text-white placeholder:text-slate-500"
             />
           </div>
-          <Button type="submit" className="h-11">
+          <Button type="submit" className="h-11 bg-[#3ee0c2] font-semibold text-[#050807] shadow-[0_0_18px_rgba(62,224,194,0.3)] hover:bg-[#2fd4b4]">
             Search
           </Button>
         </form>
@@ -107,8 +109,8 @@ export default async function SearchPage({
           })}
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
-          No matching posts yet.
+        <div className="rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-12 text-center">
+          <p className="font-body-ui text-slate-400">No matching posts yet—try another keyword or browse the gallery.</p>
         </div>
       )}
     </PageShell>

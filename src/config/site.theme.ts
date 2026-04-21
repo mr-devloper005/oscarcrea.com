@@ -1,15 +1,15 @@
 import { defineSiteTheme } from '@/config/site.theme.defaults'
 
 export const SITE_THEME = defineSiteTheme({
-  shell: 'directory',
+  shell: 'studio',
   hero: {
-    variant: 'search-first',
-    eyebrow: 'Business discovery system',
+    variant: 'gallery-mosaic',
+    eyebrow: 'Image social profile',
   },
   home: {
-    layout: 'directory-stack',
-    primaryTask: 'listing',
-    featuredTaskKeys: ['listing', 'profile', 'classified'],
+    layout: 'studio-showcase',
+    primaryTask: 'image',
+    featuredTaskKeys: ['image'],
   },
   navigation: {
     variant: 'compact',

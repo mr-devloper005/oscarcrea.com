@@ -7,26 +7,26 @@ const stats = [
   {
     icon: FileText,
     value: '25K+',
-    label: 'Articles Published',
-    description: 'Quality content created by our community'
+    label: 'Images shared',
+    description: 'Visual posts published across the community'
   },
   {
     icon: Building2,
     value: '12K+',
-    label: 'Business Listings',
-    description: 'Verified businesses and services'
+    label: 'Creator styles',
+    description: 'Distinct portfolios and visual identities'
   },
   {
     icon: Tag,
     value: '50K+',
-    label: 'Classified Ads',
-    description: 'Items listed and sold'
+    label: 'Tags & themes',
+    description: 'Ways to browse and filter the gallery'
   },
   {
     icon: Users,
     value: '100K+',
-    label: 'Active Users',
-    description: 'Growing community members'
+    label: 'Active members',
+    description: 'People building their image profile here'
   }
 ]
 
@@ -39,7 +39,7 @@ export function StatsSection() {
             Platform in Numbers
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Join our thriving community of creators and businesses
+            Join creators who lead with imagery and visual identity
           </p>
         </div>
 

@@ -35,7 +35,8 @@ const footerLinks = {
     { name: 'Help Center', href: '/help' },
     { name: 'Community', href: '/community' },
     { name: 'Developers', href: '/developers' },
-    { name: 'Status', href: '/status' },
+    { name: 'Status', href: '/status' },  
+    { name: 'Contact', href: '/contact' },
   ],
   legal: [
     { name: 'Privacy', href: '/privacy' },
@@ -87,8 +88,8 @@ export function Footer() {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr_1fr]">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/8 p-1.5">
-                  <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="48" height="48" className="h-full w-full object-contain" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/12 bg-white/8 p-1.5">
+                  <img src="/favicon.png?v=20260421" alt={`${SITE_CONFIG.name} logo`} width="64" height="64" className="h-full w-full object-contain" />
                 </div>
                 <div>
                   <p className="text-lg font-semibold">{SITE_CONFIG.name}</p>
@@ -97,7 +98,7 @@ export function Footer() {
               </div>
               <p className="mt-5 max-w-md text-sm leading-7 text-slate-300">{SITE_CONFIG.description}</p>
               {primaryTask ? (
-                <Link href={primaryTask.route} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#8df0c8] px-4 py-2.5 text-sm font-semibold text-[#07111f] hover:bg-[#77dfb8]">
+                <Link href={primaryTask.route} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#3ee0c2] px-4 py-2.5 text-sm font-semibold text-[#050807] shadow-[0_0_18px_rgba(62,224,194,0.35)] hover:bg-[#2fd4b4]">
                   Explore {primaryTask.label}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -179,8 +180,8 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <div className="h-11 w-11 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
-                <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="44" height="44" className="h-full w-full object-contain" />
+              <div className="h-14 w-14 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
+                <img src="/favicon.png?v=20260421" alt={`${SITE_CONFIG.name} logo`} width="56" height="56" className="h-full w-full object-contain" />
               </div>
               <div>
                 <span className="block text-lg font-semibold">{SITE_CONFIG.name}</span>

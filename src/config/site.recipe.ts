@@ -8,7 +8,7 @@ export const SITE_RECIPE: SiteRecipe = {
   footerTemplate: 'dense-footer',
   motionPack: 'studio-stagger',
   primaryTask: 'image',
-  enabledTasks: ['image', 'profile'],
+  enabledTasks: ['image'],
   taskTemplates: {
     image: 'image-masonry',
     profile: 'profile-creator',

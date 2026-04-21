@@ -1,24 +1,6 @@
-import { TaskDetailPage } from "@/components/tasks/task-detail-page";
-import { buildPostMetadata, buildTaskMetadata } from "@/lib/seo";
-import { fetchTaskPostBySlug, fetchTaskPosts } from "@/lib/task-data";
+import { redirect } from 'next/navigation'
 
-export const revalidate = 3;
-
-export async function generateStaticParams() {
-  const posts = await fetchTaskPosts("image", 50);
-  if (!posts.length) {
-    return [{ slug: "placeholder" }];
-  }
-  return posts.map((post) => ({ slug: post.slug }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const post = await fetchTaskPostBySlug("image", resolvedParams.slug);
-  return post ? await buildPostMetadata("image", post) : await buildTaskMetadata("image");
-}
-
-export default async function ImageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  return <TaskDetailPage task="image" slug={resolvedParams.slug} />;
+export default async function ImageSlugToGalleryRedirect({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  redirect(`/gallery/${slug}`)
 }

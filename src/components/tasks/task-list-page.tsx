@@ -3,8 +3,9 @@ import { ArrowRight, Building2, FileText, Image as ImageIcon, LayoutGrid, Tag, U
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { TaskListClient } from '@/components/tasks/task-list-client'
+import { TaskPostCard } from '@/components/shared/task-post-card'
 import { SchemaJsonLd } from '@/components/seo/schema-jsonld'
-import { fetchTaskPosts } from '@/lib/task-data'
+import { fetchTaskPosts, buildPostUrl } from '@/lib/task-data'
 import { SITE_CONFIG, getTaskConfig, type TaskKey } from '@/lib/site-config'
 import { CATEGORY_OPTIONS, normalizeCategory } from '@/lib/categories'
 import { taskIntroCopy } from '@/config/site.content'
@@ -179,17 +180,42 @@ export async function TaskListPage({ task, category }: { task: TaskKey; category
               <p className={`mt-5 max-w-2xl text-sm leading-8 ${ui.muted}`}>This surface leans into stronger imagery, larger modules, and more expressive spacing so visual content feels materially different from reading and directory pages.</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className={`min-h-[220px] rounded-[2rem] ${ui.panel}`} />
-              <div className={`min-h-[220px] rounded-[2rem] ${ui.soft}`} />
-              <div className={`col-span-2 min-h-[120px] rounded-[2rem] ${ui.panel}`} />
+              {posts.slice(0, 3).map((post, index) => (
+                <div key={post.id} className={index === 2 ? 'col-span-2' : ''}>
+                  <TaskPostCard post={post} href={buildPostUrl(task, post.slug)} taskKey={task} compact />
+                </div>
+              ))}
+              {posts.length === 0 && (
+                <>
+                  <div className={`min-h-[220px] rounded-[2rem] ${ui.panel}`} />
+                  <div className={`min-h-[220px] rounded-[2rem] ${ui.soft}`} />
+                  <div className={`col-span-2 min-h-[120px] rounded-[2rem] ${ui.panel}`} />
+                </>
+              )}
             </div>
           </section>
         ) : null}
 
         {layoutKey === 'profile-creator' || layoutKey === 'profile-business' ? (
           <section className={`mb-12 rounded-[2.2rem] p-8 shadow-[0_24px_70px_rgba(15,23,42,0.1)] ${ui.panel}`}>
-            <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-              <div className={`min-h-[240px] rounded-[2rem] ${ui.soft}`} />
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+              <div>
+                {posts.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-3">
+                    {posts.slice(0, 4).map((post) => (
+                      <TaskPostCard 
+                        key={post.id} 
+                        post={post} 
+                        href={buildPostUrl(task, post.slug)} 
+                        taskKey={task} 
+                        compact 
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className={`min-h-[240px] w-full rounded-[2rem] ${ui.soft}`} />
+                )}
+              </div>
               <div>
                 <p className={`text-xs uppercase tracking-[0.3em] ${ui.muted}`}>{taskConfig?.label || task}</p>
                 <h1 className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-foreground">Profiles with stronger identity, trust, and reputation cues.</h1>

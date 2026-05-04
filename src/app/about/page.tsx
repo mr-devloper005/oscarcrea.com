@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { PageShell } from "@/components/shared/page-shell";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { mockTeamMembers } from "@/data/mock-data";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { ArrowUpRight, Image as ImageIcon, Sparkles, Users } from "lucide-react";
 
@@ -94,35 +92,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mt-12">
-        <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#3ee0c2]/80">People behind the product</p>
-            <h2 className="mt-2 text-2xl font-semibold uppercase tracking-wide text-white">Team highlights</h2>
-          </div>
-          <Link href="/team" className="text-sm font-semibold text-[#3ee0c2] hover:underline">
-            View team directory
-          </Link>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {mockTeamMembers.map((member) => (
-            <div key={member.id} className={`${card} transition hover:border-[#3ee0c2]/35 hover:shadow-[0_0_24px_rgba(62,224,194,0.12)]`}>
-              <div className="flex items-center gap-3">
-                <Avatar className="h-12 w-12 border border-white/15">
-                  <AvatarImage src={member.avatar} alt={member.name} />
-                  <AvatarFallback className="bg-white/10 text-white">{member.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="text-sm font-semibold text-white">{member.name}</p>
-                  <p className="text-xs text-slate-500">{member.role}</p>
-                </div>
-              </div>
-              <p className="font-body-ui mt-4 text-sm leading-relaxed text-slate-400">{member.bio}</p>
-              <p className="mt-3 text-xs text-slate-600">{member.location}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </PageShell>
   );
 }

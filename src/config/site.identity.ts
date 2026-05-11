@@ -1,7 +1,7 @@
 export const siteIdentity = {
   code: process.env.NEXT_PUBLIC_SITE_CODE || 'c1czudw5kw',
   name: process.env.NEXT_PUBLIC_SITE_NAME || 'Oscarcrea',
-  tagline: process.env.NEXT_PUBLIC_SITE_TAGLINE || 'Image + Social Profile platform',
+  tagline: process.env.NEXT_PUBLIC_SITE_TAGLINE || '',
   description:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
     'A image + social profile site for Oscarcrea, built for clean discovery and structured publishing.',

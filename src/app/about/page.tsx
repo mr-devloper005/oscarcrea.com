@@ -7,12 +7,6 @@ import { ArrowUpRight, Image as ImageIcon, Sparkles, Users } from "lucide-react"
 const card =
   "rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_28px_rgba(62,224,194,0.06)] backdrop-blur-sm";
 
-const highlights = [
-  { label: "Visual posts shared", value: "120k+" },
-  { label: "Active creators", value: "18k+" },
-  { label: "Styles & tags", value: "340+" },
-];
-
 const values = [
   {
     title: "Image-first identity",
@@ -42,21 +36,12 @@ export default function AboutPage() {
       title={`About ${SITE_CONFIG.name}`}
       description={`${SITE_CONFIG.name} is an image social profile platform—share your vision, curate your gallery, and connect through visuals.`}
       actions={
-        <>
-          <Button
-            variant="outline"
-            className="border-[#3ee0c2]/40 bg-transparent text-[#e8fffa] hover:bg-[#3ee0c2]/10"
-            asChild
-          >
-            <Link href="/team">Team</Link>
-          </Button>
-          <Button className="bg-[#3ee0c2] font-semibold text-[#050807] shadow-[0_0_22px_rgba(62,224,194,0.35)] hover:bg-[#2fd4b4]" asChild>
-            <Link href="/contact" className="inline-flex items-center gap-2">
-              Contact
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </>
+        <Button className="bg-[#3ee0c2] font-semibold text-[#050807] shadow-[0_0_22px_rgba(62,224,194,0.35)] hover:bg-[#2fd4b4]" asChild>
+          <Link href="/contact" className="inline-flex items-center gap-2">
+            Contact
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </Button>
       }
     >
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -69,17 +54,6 @@ export default function AboutPage() {
             {SITE_CONFIG.name} exists so photographers, designers, and visual artists can publish in a space that feels
             premium—large imagery, masonry rhythm, and mint accents that reward attention on your work.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {highlights.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-xl border border-white/10 bg-black/30 px-4 py-4 text-center sm:text-left"
-              >
-                <div className="text-2xl font-bold tracking-tight text-[#3ee0c2]">{item.value}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">{item.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="grid gap-4">
           {values.map((value) => (

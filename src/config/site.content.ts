@@ -2,10 +2,10 @@ import type { TaskKey } from '@/lib/site-config'
 
 export const siteContent = {
   navbar: {
-    tagline: 'Image + Social Profile platform',
+    tagline: '',
   },
   footer: {
-    tagline: 'Image + Social Profile platform',
+    tagline: '',
   },
   hero: {
     badge: 'Latest stories and visuals',
@@ -202,10 +202,10 @@ export const taskIntroCopy: Record<
     ],
   },
   social: {
-    title: 'Short updates and community signals',
+    title: 'Gallery updates and visual signals',
     paragraphs: [
-      'Short updates add quick signals that keep activity flowing across the platform.',
-      'They work well with stories, listings, and resources by helping visitors move from brief updates into deeper content.',
+      'Gallery updates add quick signals that keep visual activity flowing across platform.',
+      'They work well with stories, listings, and resources by helping visitors move from visual updates into deeper content.',
       'Use these posts as lightweight entry points into the broader site experience.',
     ],
     links: [

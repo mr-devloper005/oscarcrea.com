@@ -22,7 +22,7 @@ export function ContributorsSection() {
             </p>
           </div>
           <Button variant="ghost" asChild className="hidden sm:flex">
-            <Link href="/community">
+            <Link href="/gallery">
               View All
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -37,7 +37,7 @@ export function ContributorsSection() {
 
         <div className="mt-8 text-center sm:hidden">
           <Button variant="outline" asChild>
-            <Link href="/community">
+            <Link href="/gallery">
               View All Contributors
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

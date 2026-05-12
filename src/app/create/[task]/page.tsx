@@ -82,7 +82,7 @@ const FORM_CONFIG: Record<TaskKey, { title: string; description: string; fields:
     ],
   },
   image: {
-    title: "Create Image Share",
+    title: "Upload Image Share",
     description: "Share image-only content locally.",
     fields: [
       { key: "title", label: "Image title", type: "text", required: true },

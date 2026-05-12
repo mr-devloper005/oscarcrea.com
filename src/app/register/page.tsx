@@ -42,7 +42,7 @@ function getRegisterConfig(kind: ReturnType<typeof getProductKind>) {
       inputClass: 'border border-white/15 bg-black/50 text-white placeholder:text-slate-500',
       action: 'bg-[#3ee0c2] text-[#050807] shadow-[0_0_22px_rgba(62,224,194,0.35)] hover:bg-[#2fd4b4]',
       icon: ImageIcon,
-      title: 'Create your image profile',
+      title: 'Upload your image profile',
       body: 'Join the gallery, publish visuals, and keep your identity synced—your account is stored locally on this device after sign-up.',
     }
   }

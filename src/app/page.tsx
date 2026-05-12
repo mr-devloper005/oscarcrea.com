@@ -379,10 +379,6 @@ function VisualHome({ primaryTask, imagePosts, profilePosts: _profilePosts, arti
         </div>
 
         <div className="relative mx-auto max-w-4xl text-center">
-          <span className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] sm:text-[11px] ${tone.badge}`}>
-            <ImageIcon className="h-3.5 w-3.5" />
-            Image social profile
-          </span>
           <h1 className="mt-8 text-4xl font-bold uppercase leading-[1.08] tracking-[0.06em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Showcase your vision
           </h1>

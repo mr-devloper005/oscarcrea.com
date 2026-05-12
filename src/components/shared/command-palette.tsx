@@ -14,7 +14,7 @@ const quickLinks = [
   { label: 'Settings', href: '/settings', icon: Settings },
 ]
 
-const createActions = [{ label: 'New image post', href: '/create/image', icon: Plus }]
+const createActions = [{ label: 'Upload image post', href: '/create/image', icon: Plus }]
 
 export function CommandPalette() {
   const router = useRouter()
